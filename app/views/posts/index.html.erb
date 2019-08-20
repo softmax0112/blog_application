@@ -1,0 +1,27 @@
+<h3>Post List</h3>
+    <% @posts.each do |post| %>
+      <div class="col-sm-12">
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <h4><%= post.title %></h4>
+                <% if user_signed_in? && current_user.id == post.user_id %>
+                  <div class="buttons">
+                    <a href="/posts/<%=post.id%>/edit"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a href="/posts/<%=post.id%>" data-method="delete"><span class="glyphicon glyphicon-trash"></span></a>
+                  </div>
+                <% end %>
+              </div>
+
+              <div class="panel-body">
+                <%= post.body %>
+              </div>
+
+              <div class="panel-footer">
+                <%= post.user.nickname %>
+                <%= simple_time(post[:created_at] ) %>
+	            </div>
+
+            </div>
+      </div>
+    <% end %>
+    <%= paginate(@posts) %>

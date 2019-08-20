@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlogApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Blog App</a>
+      </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <div class="user_nav grid-6">
+                <ul>
+                  <li>
+                    <%= current_user.nickname %>
+                  </li>
+                  <li>
+                    <a href="/users/<%= current_user.id %>">マイページ</a>
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                    <a class="post" href="/new">投稿する</a>
+                  </li>
+                </ul>
+            </div>
+          <% else %>
+            <div class="grid-6">
+              <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+              <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+            </div>
+          <% end %>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

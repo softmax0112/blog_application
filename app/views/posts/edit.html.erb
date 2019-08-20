@@ -1,0 +1,12 @@
+    <h3>Edit Post</h3>
+    <%= form_tag("/posts/" +@post.id.to_s, :method=>:patch) do %>
+        <div class="form-group">
+            <%= label_tag "form-title","Title" %>
+            <%= text_field :posts, :title, id:"form-title" , class:"form-control",value: @post.title %>
+        </div>
+        <div class="form-group">
+            <%= label_tag "form-content","Content" %>
+            <%= text_field :posts, :body, id:"form-content" , class:"form-control",value: @post.body %>
+        </div>
+        <%= submit_tag "Update" ,class:"btn btn-primary"%>
+    <% end %>

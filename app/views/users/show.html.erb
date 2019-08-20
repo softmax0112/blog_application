@@ -1,0 +1,23 @@
+<div class="contents row" >
+    <p><%= @nickname %>さんの投稿一覧</p>
+    <% @posts.each do |post| %>
+      <div class="col-sm-12">
+              <div class="panel panel-warning">
+                <div class="panel-heading">
+                  <h4><%= post.title %></h4>
+                  <div class="buttons">
+                    <a href="/posts/<%=post.id%>/edit"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a href="/posts/<%=post.id%>" data-method="delete"><span class="glyphicon glyphicon-trash"></span></a>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <%= post.body %>
+                </div>
+                <div class="panel-footer">
+                  <%= simple_time(post[:created_at] ) %>
+                </div>
+              </div>
+          </div>
+      <% end %>
+      <%= paginate(@posts) %>
+      </div>

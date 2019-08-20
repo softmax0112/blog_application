@@ -1,0 +1,19 @@
+    <h3>Create Post</h3>
+    <%= form_for @post,:url => {:action => :create} do |f| %>
+        <div class="form-group">
+            <%= f.label :title %>
+            <%= f.text_field :title, id:"form-title" , class:"form-control",placeholder: "title" %>
+        </div>
+        <div class="form-group">
+            <%= f.label :body %>
+            <%= f.text_field :body, id:"form-content" , class:"form-control",placeholder: "content" %>
+        </div>
+        <%= submit_tag "Create" ,class:"btn btn-primary"%>
+    <% end %>
+
+
+
+
+
+    <%# <textarea cols="30" name="title" placeholder="title" rows="1"></textarea> %>
+    <%# <textarea cols="30" name="body" placeholder="body" rows="1"></textarea> %>
