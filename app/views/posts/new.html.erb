@@ -1,13 +1,31 @@
     <h3>Create Post</h3>
     <%= form_for @post,:url => {:action => :create} do |f| %>
+        <%# <div class="form-group">
+            <%= f.label :デッキ名 %>
+            <%# <%= f.text_field :title, id:"form-title" , class:"form-control",placeholder: "デッキ名" %>
+        <%# </div> %>
+        <div class="form-group">
+            <label class="control-label">デッキ選択</label>
+            <%= f.collection_select :deck_id, @deck, :id, :name, {prompt: "---"}, class: "aaa", id: "aaa", name: "post[deck_id]" %>
+            <%# <select class="form-control" name="deck">
+                <option></option>
+                <option value="1">テスト</option>
+                <option value="2">苦手問題</option>
+                <option value="3">学習</option>
+                <option value="4">問題検索</option>
+            </select> %>
+        </div>
+
         <div class="form-group">
             <%= f.label :title %>
-            <%= f.text_field :title, id:"form-title" , class:"form-control",placeholder: "title" %>
+            <%= f.text_field :title, id:"form-title" , class:"form-control",placeholder: "問題" %>
         </div>
         <div class="form-group">
             <%= f.label :body %>
-            <%= f.text_field :body, id:"form-content" , class:"form-control",placeholder: "content" %>
+            <%= f.text_field :body, id:"form-content" , class:"form-control",placeholder: "答え" %>
         </div>
+
+
         <%= submit_tag "Create" ,class:"btn btn-primary"%>
     <% end %>
 

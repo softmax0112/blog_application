@@ -1,23 +1,12 @@
-<div class="contents row" >
-    <p><%= @nickname %>さんの投稿一覧</p>
-    <% @posts.each do |post| %>
-      <div class="col-sm-12">
-              <div class="panel panel-warning">
-                <div class="panel-heading">
-                  <h4><%= post.title %></h4>
-                  <div class="buttons">
-                    <a href="/posts/<%=post.id%>/edit"><span class="glyphicon glyphicon-edit"></span></a>
-                    <a href="/posts/<%=post.id%>" data-method="delete"><span class="glyphicon glyphicon-trash"></span></a>
-                  </div>
-                </div>
-                <div class="panel-body">
-                  <%= post.body %>
-                </div>
-                <div class="panel-footer">
-                  <%= simple_time(post[:created_at] ) %>
-                </div>
-              </div>
-          </div>
-      <% end %>
-      <%= paginate(@posts) %>
+<div class="contents row">
+  <% @decks.each do |deck| %>
+    <p><%= deck.name %></p>
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped active" id = "answer_progress" role="progressbar" aria-valuenow=@aria_valuenow aria-valuemin="0" aria-valuemax="100" >
+        <%= @answer_valuenow %>%
       </div>
+      <span>あなたの進捗は<%= @answer_valuenow  %>パーセントです。</span>
+    </div>
+  <% end %>
+</div>
+

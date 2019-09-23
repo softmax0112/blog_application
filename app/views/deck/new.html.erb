@@ -1,0 +1,9 @@
+<h1>デッキ</h1>
+<%= form_for @deck,:url => {:action => :create} do |f| %>
+        <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, id:"form-title" , class:"form-control",placeholder: "デッキ名" %>
+        </div>
+
+        <%= submit_tag "Create" ,class:"btn btn-primary"%>
+    <% end %>

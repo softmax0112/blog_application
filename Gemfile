@@ -72,3 +72,8 @@ gem 'sprockets', '3.7.2'
 
 gem 'devise'
 gem 'kaminari'
+
+gem 'ancestry'
+gem 'ransack'
+gem 'gon'
+gem "jquery-rails"

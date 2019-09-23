@@ -1,0 +1,63 @@
+<%= form_for(@test, url: posts_index_path(@test), html: {method: "get"}) do |f| %>
+<%# <%= form_for(@test) do |f| %> 
+        <div class="form-group">
+          <label class="control-label">モード選択</label>
+          <select class="form-control" name="mode">
+            <option></option>
+            <option value="1">テスト</option>
+            <option value="2">苦手問題</option>
+            <option value="3">学習</option>
+            <option value="4">問題検索</option>
+          </select>
+        </div>
+        
+
+
+  
+
+
+        <div class="form-group">
+          <label class="control-label">ジャンル</label>
+          <div class="checkbox">
+            <label><input type="checkbox" name="0">全ジャンル</label>
+            <label><input type="checkbox" name="1">1.アニメ＆ゲーム</label>
+            <label><input type="checkbox" name="2">2.スポーツ</label>
+            <label><input type="checkbox" name="3">3.芸能</label>
+            <label><input type="checkbox" name="4">4.ライフスタイル</label>
+            <label><input type="checkbox" name="5">5.社会</label>
+            <label><input type="checkbox" name="6">6.文系学問</label>
+            <label><input type="checkbox" name="7">7.理系学問</label>
+          </div>
+        </div>
+        <%= submit_tag "start" ,class:"btn btn-primary"%>
+        <%# <%= f.submit 'start' %> 
+        <%# <input name="commit" type="submit" value="Create Product"> %>
+        <%# <%= link_to "start", posts_index_path, class: 'btn btn-info' %> %>
+      <% end %>
+
+    <%= form_for(@test, url: posts_index_path(@test), html: {method: "get"}) do |f| %>
+        <div class="form-group">
+            <%= f.label :title %>
+            <%= f.text_field :title, id:"form-title" , class:"form-control",placeholder: "title" %>
+        </div>
+        <div class="form-group">
+            <%= f.label :body %>
+            <%= f.text_field :body, id:"form-content" , class:"form-control",placeholder: "content" %>
+        </div>
+
+
+        <ul>
+          <li><%= check_box "genrelist", 1 %>1.アニメ＆ゲーム</li>
+          <li><%= check_box "genrelist", 2 %>2.スポーツ</li>
+          <li><%= check_box "genrelist", 3 %>3.芸能</li>
+          <li><%= check_box "genrelist", 4 %>4.ライフスタイル</li>
+          <li><%= check_box "genrelist", 5 %>5.社会</li>
+          <li><%= check_box "genrelist", 6 %>6.文系学問</li>
+          <li><%= check_box "genrelist", 7 %>7.理系学問</li>
+        </ul>
+        <%# <input type="submit" value="投稿"> %>
+
+
+        <%= submit_tag "start" ,class:"btn btn-primary"%>
+    <% end %>
+    
